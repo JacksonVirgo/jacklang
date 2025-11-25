@@ -74,6 +74,7 @@ impl Lexer {
                 Some(s) => s,
                 None => TokenKind::Unknown("Unterminated string".into()),
             },
+            ';' => TokenKind::EndOfLine,
             _ => {
                 if c.is_alphabetic() {
                     self.identifier()

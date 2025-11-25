@@ -10,5 +10,7 @@ fn main() -> Result<(), Error> {
     let mut lexer = Lexer::new(src);
     lexer.scan();
 
+    println!("{:#?}", lexer.tokens);
+
     Ok(())
 }

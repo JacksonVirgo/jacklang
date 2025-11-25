@@ -3,6 +3,7 @@ use crate::lexer::token::{kind::TokenKind, position::TokenPosition};
 pub mod kind;
 pub mod position;
 
+#[derive(Debug)]
 pub struct Token {
     pub lexeme: String,
     pub kind: TokenKind,

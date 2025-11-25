@@ -1,6 +1,8 @@
+#[derive(Debug)]
 pub enum TokenKind {
     Unknown(String),
     EndOfFile,
+    EndOfLine,
 
     // Literals
     Integer(i64),
