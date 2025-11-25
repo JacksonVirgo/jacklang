@@ -19,6 +19,17 @@ impl Lexer {
         self.source[start..end].iter().collect()
     }
 
+    pub fn line_of(&self, index: Option<usize>) -> (usize, usize) {
+        let idx = index.unwrap_or(self.cursor_pos);
+        let line_start = self.source[..idx]
+            .iter()
+            .rposition(|&c| c == '\n')
+            .map(|pos| pos + 1)
+            .unwrap_or(0);
+        let column = idx - line_start;
+        (self.token_line, column)
+    }
+
     pub fn advance(&mut self) -> Option<char> {
         let char = self.source.get(self.cursor_pos);
         self.cursor_pos += 1;

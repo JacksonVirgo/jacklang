@@ -1,5 +1,6 @@
 use crate::lexer::token::{Token, kind::TokenKind, position::TokenPosition};
 
+pub mod errors;
 pub mod multi_char;
 pub mod stream;
 pub mod token;
@@ -85,7 +86,7 @@ impl Lexer {
         };
 
         if let TokenKind::Unknown(msg) = &kind {
-            eprintln!("Error: {}", msg); // TODO: Proper error handling
+            self.error().with_message(msg).report();
             return;
         }
         token.lexeme = self.current_lexeme.clone();

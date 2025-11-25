@@ -3,5 +3,14 @@
 version = 4
 
 [[package]]
+name = "cli-colors"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3d984e65c354542cb610f50016c4d47c48306c44cd7fc044a6afd469e6be6906"
+
+[[package]]
 name = "jacklang"
 version = "0.1.0"
+dependencies = [
+ "cli-colors",
+]
