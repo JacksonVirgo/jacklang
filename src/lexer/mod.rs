@@ -66,6 +66,13 @@ impl Lexer {
                     TokenKind::Equal
                 }
             }
+            '!' => {
+                if self.peek_ahead(1).is_some_and(|c| c == '=') {
+                    TokenKind::CompareNotEqual
+                } else {
+                    TokenKind::Bang
+                }
+            }
             '<' => {
                 if self.peek_ahead(1).is_some_and(|c| c == '=') {
                     TokenKind::CompareLesserEqual

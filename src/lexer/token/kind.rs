@@ -4,6 +4,8 @@ pub enum TokenKind {
     EndOfFile,
     EndOfLine,
 
+    Bang,
+
     // Literals
     Integer(i64),
     Float(f64),
@@ -24,6 +26,7 @@ pub enum TokenKind {
 
     Equal,
     CompareEqual,
+    CompareNotEqual,
     CompareGreaterEqual,
     CompareLesserEqual,
 
