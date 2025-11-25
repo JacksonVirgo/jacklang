@@ -92,5 +92,7 @@ impl Lexer {
         }
         token.lexeme = self.current_lexeme.clone();
         token.kind = kind;
+
+        self.tokens.push(token);
     }
 }
