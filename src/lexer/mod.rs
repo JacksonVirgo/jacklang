@@ -1,5 +1,6 @@
 use crate::lexer::token::{Token, kind::TokenKind, position::TokenPosition};
 
+pub mod multi_char;
 pub mod stream;
 pub mod token;
 
@@ -68,11 +69,15 @@ impl Lexer {
             '-' => TokenKind::Minus,
             '*' => TokenKind::Asterix,
             '/' => TokenKind::SlashFwd,
+            '"' => match self.string() {
+                Some(s) => s,
+                None => TokenKind::Unknown("Unterminated string".into()),
+            },
             _ => {
                 if c.is_alphabetic() {
-                    TokenKind::Identifier(c.into()) // temp
+                    self.identifier()
                 } else if c.is_numeric() {
-                    TokenKind::Integer(0) // temp
+                    self.number()
                 } else {
                     TokenKind::Unknown("Unexpected token found".into())
                 }
