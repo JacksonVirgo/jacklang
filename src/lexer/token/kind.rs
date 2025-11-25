@@ -5,7 +5,7 @@ pub enum TokenKind {
     Integer(i64),
     Identifier(String),
 
-    Assign,
+    Equal,
     CompareEqual,
 
     // Grouping

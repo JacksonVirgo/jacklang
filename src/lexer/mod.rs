@@ -61,7 +61,7 @@ impl Lexer {
                 if self.peek_ahead(1).is_some_and(|c| c == '=') {
                     TokenKind::CompareEqual
                 } else {
-                    TokenKind::Assign
+                    TokenKind::Equal
                 }
             }
             '+' => TokenKind::Plus,
