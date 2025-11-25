@@ -66,6 +66,20 @@ impl Lexer {
                     TokenKind::Equal
                 }
             }
+            '<' => {
+                if self.peek_ahead(1).is_some_and(|c| c == '=') {
+                    TokenKind::CompareLesserEqual
+                } else {
+                    TokenKind::AngleLeft
+                }
+            }
+            '>' => {
+                if self.peek_ahead(1).is_some_and(|c| c == '=') {
+                    TokenKind::CompareGreaterEqual
+                } else {
+                    TokenKind::AngleRight
+                }
+            }
             '+' => TokenKind::Plus,
             '-' => TokenKind::Minus,
             '*' => TokenKind::Asterix,

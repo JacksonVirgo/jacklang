@@ -8,15 +8,13 @@ pub enum TokenKind {
     Integer(i64),
     Float(f64),
     String(String),
-
     Identifier(String),
-
-    Equal,
-    CompareEqual,
 
     // Grouping
     ParenLeft,
     ParenRight,
+    AngleLeft,
+    AngleRight,
 
     // Operators
     Plus,
@@ -24,6 +22,12 @@ pub enum TokenKind {
     Asterix,
     SlashFwd,
 
+    Equal,
+    CompareEqual,
+    CompareGreaterEqual,
+    CompareLesserEqual,
+
+    // Reserved Keywords
     Let,
 }
 
